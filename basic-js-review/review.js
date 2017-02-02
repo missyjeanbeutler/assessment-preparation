@@ -65,8 +65,7 @@ anakinSkywalker.children.push('Jar Jar');
 //13. Loop through the object and remove any property that starts with former
 
 for(var prop in anakinSkywalker) {
-  var x = prop.split("_");
-  if(x[0] === 'former') {
+  if(prop.match(/former/g)) {
     delete anakinSkywalker[prop];
   }
 }
