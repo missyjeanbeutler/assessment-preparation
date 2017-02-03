@@ -76,7 +76,7 @@ for(var prop in anakinSkywalker) {
 function finder(arr, str) {
   for(var i = 0; i < arr.length; i++) {
     if (arr[i] === str) {
-      arr.splice(arr[i], 1);
+      arr.splice(i, 1);
     }
   }
 }
@@ -93,9 +93,8 @@ function numChecker(a) {
 //16. Write a function called rightNow that returns a new date object
 
 function rightNow() {
-  var str = Date.now()
-  var final = new Date(str);
-  return final;
+  var str = new Date(Date.now());
+  return str;
 }
 
 
