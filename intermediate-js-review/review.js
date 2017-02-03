@@ -21,15 +21,15 @@ function theOverlord() {
 
 //Assign your answers to the variables below.
 //1. The value of rules if accessed from thePowerlessFigurehead
-var ans1 = '';
+var ans1 = 'love me plz';
 //2. The value of rules if accessed from theJudge
-var ans2 = '';
+var ans2 = "cry all day";
 //3. The value of job if accessed from theOverlord
-var ans3 = '';
+var ans3 = undefined;
 //4. The value of job if accessed from thePowerlessFigurehead
-var ans4 = '';
+var ans4 = undefined;
 //5. The value of money if accessed from theTragicHumanitarian
-var ans5 = '';
+var ans5 = "belongs to the overlord";
 
 ///Promises///
 
@@ -46,7 +46,9 @@ var fibonacci = function(n) {
     }
 };
 
+function iPromise() {
 
+}
 
 ///Context///
 
@@ -54,19 +56,20 @@ var fibonacci = function(n) {
 /////to the contextObj, and with the two parameters passed in - return
 /////the result.
 function contextIt(myFn, contextObj, param1, param2) {
-
+  return myFn.call(contextObj, param1, param2);
 }
 
 //8. Do the same as you did in question 6, except with the
 /////paramArray passed in instead
 function contextIt2(myFn, contextObj, paramArray) {
-
+  return myFn.apply(contextObj, paramArray);
 }
 
 //9. Inside contextIt3, return a new function that permanently
 /////links myFn to the contextObj
 function contextIt3(myFn, contextObj) {
-
+   var newFun = myFn.bind(contextObj);
+   return newFun;
 }
 
 
@@ -78,10 +81,22 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////canFly; inside the function, assign each to an identically
 /////named property
 
+function Unicorn(hornColor, magicType, mana, canFly) {
+  this.hornColor = hornColor;
+  this.magicType = magicType;
+  this.mana = mana;
+  this.canFly = canFly;
+}
+
 //11. Add a prototype method to Unicorn called castBubbleWrapSpell
 /////which adds 100 to the global variable bubbles and takes away
 /////15 from mana on the unicorn until it hits zero.
 
+Unicorn.prototype.castBubbleWrapSpell = function() {
+  bubbles += 100;
+  this.mana -= 15;
+  this.mana === 0 ? this.mana = 0 : this.mana = this.mana;
+}
 
 
 /////Closures/////
@@ -89,6 +104,12 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 //12. Write a function called greetingMaker which takes in a name
 /////and returns a function that takes in a greeting and returns
 /////the name and the greeting concatenated together (in that order)
+
+function greetingMaker(name) {
+  return function(greeting) {
+    return name + greeting;
+  }
+}
 
 
 //13. Write a function called countdownMaker which takes in an
@@ -98,6 +119,8 @@ var bubbles = 0; //Ignore this line except to mourn our lack of bubbles.
 /////object that looks like this:
 /////{event: <eventname>, daysLeft: <days left>}
 
+
+function countdownMaker()
 
 
 /////Type Checking/////
