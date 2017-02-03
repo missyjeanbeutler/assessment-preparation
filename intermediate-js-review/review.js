@@ -120,7 +120,15 @@ function greetingMaker(name) {
 /////{event: <eventname>, daysLeft: <days left>}
 
 
-function countdownMaker()
+function countdownMaker(name, days) {
+  console.log(days);
+  return function() {
+    return {
+      event: name,
+      daysLeft: days -= 1 
+    }
+  }
+}
 
 
 /////Type Checking/////
@@ -128,3 +136,7 @@ function countdownMaker()
 //14. Write a function called notMyType which takes in a parameter
 /////and returns the type of data of the parameter (number, string,
 /////boolean, etc)
+
+function notMyType(a) {
+  return typeof a;
+}
